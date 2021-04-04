@@ -25,7 +25,7 @@ class RemindersCommand extends Command {
 		reminders.forEach(d => {
 			embed.addField(`In: ${ms(d.time - Date.now())}`, d.reminder)
 		})
-		msg.channel.send(embed)
+		return msg.channel.send(embed);
 
 	}
 }
