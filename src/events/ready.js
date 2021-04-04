@@ -16,10 +16,13 @@ class ReadyListener extends Listener {
 		setInterval(async () => {
 			const reminders = await Remind.find({active: true})
 			reminders.forEach(d => {
-				let time = d.time;
 				if(Date.now() > d.time) {
-					let user = this.client.users.cache.get(d.userId)
-					user.send(`Reminder: ${d.reminder}`)
+					try {
+						let user = this.client.users.cache.get(d.userId)
+						user.send(`Reminder: ${d.reminder}`)
+					} catch(error) {
+						console.log(`Uh oh! User with ID: ${d.userId} could not be found...`)
+					}
 					d.remove()
 				}
 			})
