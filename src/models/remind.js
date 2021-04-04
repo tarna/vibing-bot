@@ -4,6 +4,8 @@ const remindSchmea = new mongoose.Schema({
 	userId: String,
 	time: Date,
 	reminder: String,
+	id: String,
+	url: String,
 	active: Boolean
 })
 
