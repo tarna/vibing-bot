@@ -1,5 +1,7 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require('discord-akairo');
 const mongoose = require('mongoose');
+const parseDuration = require('parse-duration');
+
 require('dotenv').config();
 
 mongoose.connect(process.env.mongo || '', {
@@ -46,6 +48,13 @@ class DiscordBot extends AkairoClient {
 		this.commandHandler.useListenerHandler(this.listenerHandler);
 		this.listenerHandler.loadAll();
 
+		this.registerArgTypes();
+	}
+
+	registerArgTypes() {
+		this.commandHandler.resolver.addType('duration', (msg, phrase) => {
+			return parseDuration(phrase)
+		});
 	}
 }
 
