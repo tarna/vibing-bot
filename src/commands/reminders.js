@@ -14,19 +14,22 @@ class RemindersCommand extends Command {
 
 	async exec(msg, args) {
 
-		const reminders = await Remind.find({userId: msg.author.id})
 
-		let embed = new MessageEmbed()
-		embed.setTitle('Your reminders')
-		embed.setColor('#0000FF')
+		const reminders = await Remind.find({userId: msg.author.id})
 
 		if(reminders.length == 0) return msg.reply('You do not have any active reminders set')
 
+		let index = 1
+		let baseString = ''
 		reminders.forEach(d => {
-			embed.addField(`In: ${ms(d.time - Date.now())}`, d.reminder)
+			baseString += `${index}. ${d.reminder} (${(ms(Math.abs(Date.now() - d.time)))})\nID: ${(d.id != undefined) ? d.id : 'N/A'}\n\n`
+			index += 1
 		})
+		let embed = new MessageEmbed()
+			.setTitle('Your reminders')
+			.setColor('YELLOW')
+			.setDescription(baseString)
 		return msg.channel.send(embed);
-
 	}
 }
 

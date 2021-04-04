@@ -1,5 +1,6 @@
 const { Listener } = require('discord-akairo');
 const { Remind } = require('../models/remind')
+const { MessageEmbed } = require('discord.js')
 
 class ReadyListener extends Listener {
 	constructor() {
@@ -19,7 +20,14 @@ class ReadyListener extends Listener {
 				if(Date.now() > d.time) {
 					try {
 						let user = this.client.users.cache.get(d.userId)
-						user.send(`Reminder: ${d.reminder}`)
+						const embed = new MessageEmbed()
+							.setColor('GREEN')
+							.setTitle('💥Reminder')
+							.setDescription(`[You have set a reminder for this date!](${d.url})`)
+				
+						embed.addField('Reminder', `${d.reminder}`)
+						embed.addField('Reminder ID:', `${d.id}`)
+						user.send(embed)
 					} catch(error) {
 						console.log(`Uh oh! User with ID: ${d.userId} could not be found...`)
 					}
