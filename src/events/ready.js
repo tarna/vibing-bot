@@ -26,7 +26,7 @@ class ReadyListener extends Listener {
 							.setDescription(`[You have set a reminder for this date!](${d.url})`)
 				
 						embed.addField('Reminder', `${d.reminder}`)
-						embed.addField(`Reminder ID: ${d.id}`)
+						embed.addField('Reminder ID:', `${d.id}`)
 						user.send(embed)
 					} catch(error) {
 						console.log(`Uh oh! User with ID: ${d.userId} could not be found...`)
