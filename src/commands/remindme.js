@@ -55,7 +55,7 @@ class RemindMeCommand extends Command {
 			.setFooter(`${msg.author.tag}`, msg.author.avatarURL())
 			.setTimestamp();
 
-		embed.addField('Time', `${dateFormat(time, "dddd, mmmm dS, yyyy, h:MM TT")}`, true)
+		embed.addField('Time', `${dateFormat(time, "dddd, mmmm dS, yyyy, h:MM TT")} ${new Date().toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]}`, true)
 		embed.addField('Reminder', `${args.reminder}`, true)
 		embed.addField('ID', `${id}`, true)
 		msg.channel.send(embed).then(embedMessage => {
