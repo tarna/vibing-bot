@@ -1,6 +1,4 @@
 const { Command } = require('discord-akairo');
-const ms = require('ms')
-const mongoose = require('mongoose')
 const { MessageEmbed } = require('discord.js')
 
 class ServerInfoCommand extends Command {
@@ -20,7 +18,6 @@ class ServerInfoCommand extends Command {
 
 		let embed = new MessageEmbed()
 			.setTitle(msg.guild.name)
-			.setImage(msg.guild.icon)
 			.setColor('#0000FF')
 			.addField('Server Info', `Owner: <@${msg.guild.ownerID}> \nMembers: ${members} \nBots: ${bots}`)
 			.addField('Status', `Online: ${online} \nDND: ${dnd} \nOffline: ${offline}`)
