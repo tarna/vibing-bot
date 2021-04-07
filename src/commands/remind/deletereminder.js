@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const { Remind } = require('../models/remind')
+const { Remind } = require('../../models/remind')
 const { MessageEmbed } = require('discord.js')
 const { nanoid } = require('nanoid')
 const dateFormat = require("dateformat");

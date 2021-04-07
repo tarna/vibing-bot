@@ -3,7 +3,7 @@ const ms = require('ms')
 const mongoose = require('mongoose')
 const { MessageEmbed } = require('discord.js')
 
-const { Remind } = require('../models/remind')
+const { Remind } = require('../../models/remind')
 
 class RemindersCommand extends Command {
 	constructor() {
