@@ -15,12 +15,13 @@ class ServerInfoCommand extends Command {
 		const online = msg.guild.members.cache.filter(m => m.presence.status == 'online').size
 		const offline = msg.guild.members.cache.filter(m => m.presence.status == 'offline').size
 		const dnd = msg.guild.members.cache.filter(m => m.presence.status == 'dnd').size
+		const idle = msg.guild.members.cache.filter(m => m.presence.status == 'idle').size
 
 		let embed = new MessageEmbed()
 			.setTitle(msg.guild.name)
 			.setColor('#0000FF')
 			.addField('Server Info', `Owner: <@${msg.guild.ownerID}> \nMembers: ${members} \nBots: ${bots}`)
-			.addField('Status', `Online: ${online} \nDND: ${dnd} \nOffline: ${offline}`)
+			.addField('Status', `Online: ${online} \nIdle: ${idle} \nDND: ${dnd} \nOffline: ${offline}`)
 		msg.channel.send(embed)
 	}
 }
