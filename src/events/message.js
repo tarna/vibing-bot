@@ -11,7 +11,7 @@ class MessageListener extends Listener {
 
 	exec(msg) {
 
-		if(msg.channel.id != '773796014456176710') return;
+		if(msg.channel.id != '784634075439955988') return;
 
 		const filter = r => {
 			if(r.channel.id = msg.channel.id) return true
