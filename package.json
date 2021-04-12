@@ -12,7 +12,7 @@
   "dependencies": {
     "dateformat": "^4.5.1",
     "discord-akairo": "^8.1.0",
-    "discord.js": "^12.5.1",
+    "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "mongoose": "^5.12.2",
     "ms": "^2.1.3",
