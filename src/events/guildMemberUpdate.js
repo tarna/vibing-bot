@@ -8,8 +8,8 @@ class guildMemberUpdateListener extends Listener {
         });
     }
 
-    exec(oldMember, newMember) {
-        if (oldMember.displayName.toLowerCase() != newMember.displayName.toLowerCase()) {
+    exec(newMember) {
+        if (newMember.displayName.toLowerCase() != newMember.displayName) {
             try {
                 newMember.setNickname(newMember.displayName.toLowerCase())
             } catch(error) {
