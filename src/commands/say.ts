@@ -34,7 +34,7 @@ export class SayCommand extends Command {
         const embed = new MessageEmbed()
             .setTitle('Message sent!')
             .setColor('GREEN')
-            .addField('Channel', `<#${channel}>`)
+            .addField('Channel', `${channel}`)
             .addField('Message', message);
         setTimeout(() => {
             channel.send(message);
